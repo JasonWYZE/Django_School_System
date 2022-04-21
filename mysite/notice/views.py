@@ -1,6 +1,9 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import redirect,render
+from rest_framework import viewsets
+from .serializers import noticeSerializer
+from .models import Notice
 
 # Create your views here.
-def addNotice(request):
-    return HttpResponse("Add Notice here")
+class noticeView(viewsets.ModelViewSet):
+    serializer_class = noticeSerializer
+    queryset = Notice.objects.all()

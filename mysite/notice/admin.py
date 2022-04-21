@@ -3,4 +3,7 @@ from .models import *
 
 # Register your models here.
 
-admin.site.register(Notice)
+class noticeAdmin(admin.ModelAdmin):
+    list_display = ('title','details','date_created')
+
+admin.site.register(Notice, noticeAdmin)
