@@ -16,13 +16,23 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from notice import views
+from notice.views  import noticeView
+from student.views import StudentViewSet
+
+
+
+routerList = (
+    (r'notice', noticeView,'notice'),
+    (r'student', StudentViewSet,'student'),
+)
 
 router = routers.DefaultRouter()
-router.register(r'notice', views.noticeView, 'notice')
+for route in routerList:
+    router.register(route[0],route[1],basename=route[2])
 
 urlpatterns = [
     path('polls/',include('polls.urls')),
-    path('notice/',include(router.urls)),
+    path('api/',include(router.urls)),
     path('admin/', admin.site.urls),
 ]
+

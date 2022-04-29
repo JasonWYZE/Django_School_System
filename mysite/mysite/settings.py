@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'rest_framework', 
     'polls.apps.PollsConfig',
     'notice.apps.NoticeConfig',
+    'student.apps.StudentConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

@@ -4,4 +4,4 @@ from .models import Notice
 class noticeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Notice
-        fields=('id','title','details','date_created')
+        fields=('id','title','details','completed')
